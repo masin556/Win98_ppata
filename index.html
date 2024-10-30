@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="kr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Windows 98</title>
+  <link rel="stylesheet" href="styles.css">
+
+
+</head>
+<body>
+  <!-- Loading Screen -->
+  <div id="loadingScreen" class="loading-screen" onclick="startBootSequence()">
+     Click to Start
+  </div>
+  <!-- Audio Element for Boot Sound -->
+  <audio id="bootSound" src="windowsstartup.mp3"></audio> <!-- Set to your sound file path -->
+
+  <!-- Desktop Area -->
+  <div class="desktop">
+    <!-- Desktop Icons -->
+    <div class="icon" onclick="openWindow('recycle-bin')">
+      <img src="recycle-bin-icon.png" alt="Recycle Bin">
+      <p>Recycle Bin</p>
+    </div>
+    <div class="icon" onclick="openWindow('my-computer')">
+      <img src="mycompute.png" alt="My Computer">
+      <p>My Computer</p>
+    </div>
+    <div class="icon" onclick="openWindow('my-folders')">
+      <img src="my-folders-icon.png" alt="My Folders">
+      <p>My Folders</p>
+    </div>
+  </div>
+
+  <!-- Taskbar -->
+  <div id="taskbar">
+    <button id="startButton" onclick="toggleStartMenu()">Start</button>
+    <div id="taskbarTime"></div>
+  </div>
+
+    <!-- Start Menu -->
+    <div id="startMenu" class="hidden">
+      <ul>
+        <li class="menu-item" onclick="openWindow('favorites')">🌐 Favorites</li>
+        <li class="menu-item" onclick="openWindow('documents')">📄 Documents</li>
+        <li class="menu-item" onclick="openWindow('settings')">⚙️ Settings</li>
+        <li class="menu-item" onclick="openWindow('search')">🔍 Search</li>
+        <li class="menu-item" onclick="openWindow('help')">❓ Help</li>
+        <li class="menu-item" onclick="location.reload()">▶️ 다시시작</li>
+        <li class="menu-item" onclick="endProgram()">⏻ 컴퓨터종료</li>
+      </ul>
+    </div>
+
+  <!-- Windows 98-style Popup Window -->
+  <div id="popupWindow" class="window hidden">
+    <div class="window-title">
+      <span id="windowTitle">Window Title</span>
+      <button onclick="closeWindow()">X</button>
+    </div>
+    <div class="window-content" id="windowContent">
+      <!-- Content of the window will be dynamically added here -->
+    </div>
+  </div>
+
+ 
+  <script src="script.js"></script>
+</body>
+</html>

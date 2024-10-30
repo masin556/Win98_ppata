@@ -1,0 +1,205 @@
+/* Basic reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  /* 기본적인 로딩 화면 스타일 */
+  body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    overflow: hidden;
+  }
+
+  body {
+    margin: 0;
+    font-family: "Tahoma", sans-serif;
+    background-color: #008080;
+  }
+  
+  /* Desktop area */
+  .desktop {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 20px;
+  }
+  
+  .icon {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 10px;
+    cursor: pointer;
+    color: white;
+  }
+  
+  #taskbar {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    height: 40px;
+    background-color: #C0C0C0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 10px;
+    box-shadow: 0px -2px 5px rgba(0, 0, 0, 0.5);
+  }
+  
+  #startButton {
+    font-family: "Tahoma", sans-serif;
+    background-color: #C0C0C0;
+    border: none;
+    padding: 5px;
+    cursor: pointer;
+  }
+  
+  #taskbarTime {
+    font-size: 12px;
+  }
+
+  /* Start menu */
+  #startMenu {
+    position: absolute;
+    bottom: 40px;
+    left: 10px;
+    width: 150px;
+    background-color: #C0C0C0;
+    border: 1px solid #404040;
+    padding: 5px;
+    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.3);
+  }
+  
+
+  .loading-screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-image: url('Windows98Loading.png'); /* Set to your image path */
+    background-size: cover;
+    background-position: center;
+    z-index: 10;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-size: 24px;
+    cursor: pointer;
+  }
+
+    /* Fade-out transition */
+  .fade-out {
+    animation: fadeOut 1s forwards;
+  }
+  @keyframes fadeOut {
+    from { opacity: 1; }
+    to { opacity: 0; }
+  }
+
+  #copyright {
+    color: #fff;
+    font-family: Arial, sans-serif;
+    margin-top: 10px;
+  }
+  
+  .hidden {
+    display: none;
+  }
+
+  #errorModal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+  }
+
+  .errorContent {
+    background-color: #f1f1f1;
+    border: 2px solid #000080;
+    padding: 20px;
+    text-align: center;
+    width: 300px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.5);
+  }
+  
+  #errorIcon {
+    width: 40px;
+    margin-bottom: 10px;
+  }
+  
+  #errorMessage {
+    font-size: 16px;
+    color: #000;
+    margin-bottom: 20px;
+  }
+
+  button {
+    padding: 5px 15px;
+    background-color: #e1e1e1;
+    border: 1px solid #000080;
+    cursor: pointer;
+  }
+
+  /* Menu Items */
+  .menu-item {
+    display: flex;
+    align-items: center;
+    padding: 5px;
+    cursor: pointer;
+    background-color: transparent;
+    font-size: 14px;
+  }
+
+
+  .menu-item:hover {
+    background-color: #000080;
+    color: white;
+  }
+
+  /* Add a shadow and border for a more 3D look */
+  .window {
+    position: absolute;
+    width: 300px;
+    border: 2px solid #808080;
+    background-color: #ffffff;
+    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.3);
+  }
+  
+  .window-title {
+    display: flex;
+    justify-content: space-between;
+    background-color: #000080;
+    color: white;
+    padding: 5px;
+    cursor: move;
+    border-bottom: 1px solid #808080;
+  }
+  
+  /* File icon in My Folders */
+  .file {
+    cursor: pointer;
+    margin: 10px;
+    font-size: 16px;
+    color: #000;
+  }
+  
+  /* Notepad Window */
+  .notepad-content {
+    width: 100%;
+    height: 200px;
+    border: none;
+    padding: 10px;
+    font-family: monospace;
+    background-color: #f0f0f0;
+    resize: none;
+  }
