@@ -133,3 +133,64 @@ function closeError() {
     const errorModal = document.getElementById('errorModal');
     errorModal.classList.add('hidden'); // Hide the error modal
 }
+
+// Function to select an icon with a blue highlight
+function selectIcon(event, iconElement) {
+  event.stopPropagation();
+  deselectAllIcons(); // Deselect others when a new icon is selected
+  iconElement.classList.add('selected');
+}
+
+// Deselect all icons when clicking elsewhere
+function deselectAllIcons() {
+  document.querySelectorAll('.desktop-icon').forEach(icon => icon.classList.remove('selected'));
+}
+
+
+// Function to handle double-click and open explorer
+function openExplorer() {
+  const explorerIcon = document.querySelector('.explorer-icon');
+  const explorerWindow = document.getElementById('explorerWindow');
+  const explorerContent = document.getElementById('explorerContent');
+
+  // Add pressed effect on double-click
+  explorerIcon.classList.add('active');
+  setTimeout(() => {
+      explorerIcon.classList.remove('active');
+  }, 200); // Brief delay for effect
+
+  // Set URL for iframe (you can change this to any URL or video link)
+  explorerContent.src = "https://www.youtube.com/embed/KRtgJuXz3NY"; // Replace with desired URL
+
+  // Show the explorer window
+  explorerWindow.style.display = 'block';
+}
+
+// Function to close the explorer window
+function closeExplorer() {
+  const explorerWindow = document.getElementById('explorerWindow');
+  const explorerContent = document.getElementById('explorerContent');
+
+  // Hide the explorer window
+  explorerWindow.style.display = 'none';
+  explorerContent.src = ""; // Clear the iframe source
+}
+
+// Save post in My Folders
+function savePost() {
+  const postContent = document.getElementById("myFolderPost").value;
+  alert("Post saved: " + postContent); // Replace with your save logic
+}
+
+// Set up drag and drop for Recycle Bin
+document.getElementById("recycleBinModal").addEventListener("drop", handleDrop);
+document.getElementById("recycleBinModal").addEventListener("dragover", (event) => {
+    event.preventDefault();
+});
+
+// Example: dragging posts
+function handleDrop(event) {
+  event.preventDefault();
+  const data = event.dataTransfer.getData("text");
+  alert("File moved to Recycle Bin: " + data); // Handle deletion or moving to Recycle Bin
+}

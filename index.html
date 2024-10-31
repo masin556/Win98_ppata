@@ -19,20 +19,35 @@
   <!-- Desktop Area -->
   <div class="desktop">
     <!-- Desktop Icons -->
-    <div class="desktop-icon" onclick="openWindow('recycle-bin')">
+    <div class="desktop-icon" ondblclick="openWindow('recycle-bin')" onclick="selectIcon(event, this)">
       <img src="recyclebin.png" alt="Recycle Bin">
       <p>휴지통</p>
     </div>
-
-    <div class="desktop-icon" onclick="openWindow('my-computer')">
+    
+    <div class="desktop-icon" ondblclick="openWindow('my-computer')" onclick="selectIcon(event, this)">
       <img src="mycompute.png" alt="My Computer">
       <p>내컴퓨터</p>
     </div>
 
-    <div class="desktop-icon" onclick="openWindow('my-folders')">
+    <div class="desktop-icon" ondblclick="openWindow('my-folders')" onclick="selectIcon(event, this)">
       <img src="myfolder.png" alt="My Folders">
       <p>내폴더</p>
     </div>
+
+    <!-- Windows Explorer Icon -->
+    <div class="desktop-icon explorer-icon" ondblclick="openExplorer()">
+      <img src="windowexplorer.png" alt="Windows Explorer"> <!-- Icon image -->
+      <span>Windows Explorer</span>
+    </div>
+  </div>
+
+  <!-- Windows 98 Style Browser Modal -->
+  <div id="explorerWindow" class="explorer-window">
+    <div class="window-header">
+        <span>Windows Explorer</span>
+        <button onclick="closeExplorer()">X</button>
+    </div>
+    <iframe id="explorerContent" src="" frameborder="0"></iframe>
   </div>
 
   <!-- Taskbar -->

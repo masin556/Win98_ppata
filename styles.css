@@ -23,18 +23,24 @@
   .desktop {
     display: flex;
     flex-direction: column;
-    align-items: left;
-    justify-content: start;
-    padding: 10px;
-    row-gap: 20px; /* Space between icons */
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    width: 60px;
+    cursor: pointer;
+    user-select: none;
+    padding: 5px;
   }
   
   .icon {
     display: flex;
     flex-direction: column;
-    align-items: center; /* Centers the image and text horizontally */
+    align-items: center;
     text-align: center;
-    width: 60px; /* Icon box width */
+    width: 60px;
+    cursor: pointer;
+    user-select: none;
+    padding: 5px;
   }
 
   .desktop-icon img {
@@ -48,6 +54,59 @@
   .desktop-icon span {
     line-height: 1; /* Ensures text doesn't take extra vertical space */
     font-size: 12px; /* Adjust as needed */
+  }
+
+  /* Blue selection highlight */
+  .desktop-icon.selected {
+    background-color: rgba(0, 120, 215, 0.3);
+    border: 1px solid #0078d7;
+    color: white;
+  }
+
+  /* Explorer icon double-click pressed effect */
+  .explorer-icon:active {
+    background-color: rgba(0, 120, 215, 0.3);
+    color: white;
+    border: 1px solid #0078d7;
+  }
+
+  /* Windows 98 style browser window */
+  .explorer-window {
+    display: none; /* Hidden by default */
+    position: fixed;
+    top: 20%;
+    left: 25%;
+    width: 50%;
+    height: 60%;
+    background-color: #e4e4e4;
+    border: 2px solid #000;
+    z-index: 1000;
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
+  }
+
+  /* Window header */
+  .window-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #0078d7;
+    color: white;
+    padding: 5px;
+    font-size: 14px;
+  }
+
+  .window-header button {
+    background: none;
+    border: none;
+    color: white;
+    cursor: pointer;
+    font-weight: bold;
+  }
+
+  /* Content iframe styling */
+  #explorerContent {
+    width: 100%;
+    height: calc(100% - 30px); /* Adjusts for header height */
   }
 
   #taskbar {
