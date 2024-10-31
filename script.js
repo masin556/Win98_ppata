@@ -28,20 +28,18 @@ function toggleStartMenu() {
     startMenu.classList.toggle('hidden');
 }
   
-// Update Taskbar Clock every minute
-function updateClock() {
-    const taskbarTime = document.getElementById('taskbarTime');
-    const now = new Date();
-    const hours = now.getHours().toString().padStart(2, '0');
-    const minutes = now.getMinutes().toString().padStart(2, '0');
-    taskbarTime.textContent = `${hours}:${minutes}`;
-  }
-  setInterval(updateClock, 60000); // Update every minute
-  
-   // System exit (placeholder)
-    function exitSystem() {
-    alert("Exiting system...");
+function updateTime() {
+  const now = new Date();
+  const hours = String(now.getHours()).padStart(2, '0');
+  const minutes = String(now.getMinutes()).padStart(2, '0');
+  const timeString = `${hours}:${minutes}`;
+  document.getElementById('timeDisplay').textContent = timeString;
 }
+
+// Update time every minute
+setInterval(updateTime, 1000);
+updateTime(); // Initial call
+
 
 // Function to open a window when an icon is clicked
 function openWindow(windowType) {
@@ -98,7 +96,7 @@ document.getElementById('popupWindow').classList.add('hidden');
   
 // Function to "End Program" (navigate to another link)
 function endProgram() {
-window.location.href = "https://example.com"; // Replace with the actual link
+window.location.href = "http://gibeonsoftwork.notion.site"; // Replace with the actual link
 }
   
 const popupWindow = document.getElementById('popupWindow');
